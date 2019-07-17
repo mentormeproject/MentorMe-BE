@@ -16,6 +16,8 @@ Accepts an object of schema
 }
 ```
 
+---
+
 ## Login
 
 ### POST /api/login
@@ -33,8 +35,6 @@ Accepts an object of schema
 ---
 
 ## Questions
-
----
 
 ### GET /api/questions
 
