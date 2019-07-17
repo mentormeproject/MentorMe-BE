@@ -63,4 +63,4 @@ to update, simply pass in any key/value pair listed in the original POST questio
 ### DELETE /api/questions{id}
 
 Endpoint: `https://mentor-me-application.herokuapp.com/api/questions/:id`
-This deletes an existing question by identifying it by the question's id number.
+This deletes an existing question by identifying it by the questions id number.
