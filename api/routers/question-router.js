@@ -23,24 +23,15 @@ router.get("/questions", async (req, res) => {
 });
 
 // POST "/api/questions" - adds a question to the Database
-// TODO: sql constraint error
+// TODO: all posts use user_id of 1. correct this so it changes to the logged in user
 router.post("/questions", async (req, res) => {
-  const inquiry = req.body;
-  const { title, question, business_type } = req.body;
-
-  if (question && business_type) {
-    try {
-      const questions = await Questions.add(inquiry);
-      res.status(201).json(inquiry);
-    } catch (error) {
-      res.status(500).json({
-        error: error,
-        message: "There was an error while saving the post to the database"
-      });
-    }
-  } else {
-    res.status(400).json({
-      errorMessage: "Please provide a question and business type for the post."
+  try {
+    const question = await Questions.addQuestion(req.body);
+    res.status(201).json(question);
+  } catch (error) {
+    console.log({ error: error });
+    res.status(500).json({
+      message: "Error adding the question"
     });
   }
 });
