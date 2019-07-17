@@ -33,5 +33,5 @@ function remove(id) {
 function update(id, changes) {
   return db("questions")
     .where({ id })
-    .update(changes, "*"); // adds astrix to show a change was made
+    .update(changes, "*"); // adds an astrix to show a change was made
 }
