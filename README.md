@@ -30,12 +30,18 @@ Accepts an object of schema
 }
 ```
 
+---
+
 ## Questions
+
+---
 
 ### GET /api/questions
 
 Endpoint: `https://mentor-me-application.herokuapp.com/api/questions`
 This gathers a list of all the questions
+
+---
 
 ### POST /api/questions
 
@@ -53,12 +59,16 @@ Accepts an object of schema
 }
 ```
 
+---
+
 ### PUT /api/questions/{id}
 
 Endpoint: `https://mentor-me-application.herokuapp.com/api/questions/:id`
 This updates an existing question
 
 to update, simply pass in any key/value pair listed in the original POST question to overwrite it.
+
+---
 
 ### DELETE /api/questions{id}
 
