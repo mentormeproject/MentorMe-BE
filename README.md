@@ -13,6 +13,10 @@ Accepts an object of schema
 {
 	"username": "string",
 	"password": "string"
+	"location": "string",
+	"email": "string",
+	"age": "string",
+	"phone_number": "string",
 }
 ```
 
