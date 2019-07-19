@@ -2,8 +2,8 @@ const express = require("express");
 const helmet = require("helmet");
 const twilio = require("twilio");
 
-const accountSid = 'AC5bc2d9be4d91ee2347467d78ce6d9873';
-const authToken = '5a1d2ee68bfed1581a7339d833990692';
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = new twilio(accountSid, authToken);
 
 const authorization = require("./routers/auth-router.js");
