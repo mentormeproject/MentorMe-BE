@@ -12,6 +12,7 @@ exports.up = function(knex, Promise) {
       .unique();
     tbl.string("age", 128).notNullable();
     tbl.string("location", 128).notNullable();
+    tbl.string("business_type", 128);
   });
 };
 
