@@ -13,11 +13,11 @@ const client = new twilio(accountSid, authToken);
 // twilio text
 
 module.exports = {
-  sendMessage: msgNotification => {
+  sendMessage: users => {
     client.messages.create({
-    body: `Hello! ${msgNotification.username} Someone posted a question for you to answer!`,
+    body: `Hello! ${users.username} Someone posted a question for you to answer!`,
     from: twilioNumber,
-    to: msgNotification.phoneNumber
+    to: users.phoneNumber
     })
 
     .then(message => console.log(message))
@@ -27,20 +27,20 @@ module.exports = {
 
 
 
-router.get("/send-text", (req, res) => {
-  const { recipient, textmessage } = req.query
+// router.get("/send-text", (req, res) => {
+//   const { recipient, textmessage } = req.query
 
-// Send Text
-  client.messages.create({
-    body: textmessage,
-    from: twilioNumber,
-    to: recipient,
-    from: +14052765588 // from Twilio
-  })
-  .then(message => {
-    console.log(message.body)
-  })
+// // Send Text
+//   client.messages.create({
+//     body: textmessage,
+//     from: twilioNumber,
+//     to: recipient,
+//     from: +14052765588 // from Twilio
+//   })
+//   .then(message => {
+//     console.log(message.body)
+//   })
 
-})
+// })
 
 module.exports = router;
