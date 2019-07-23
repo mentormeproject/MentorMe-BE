@@ -9,7 +9,7 @@ const restricted = require("../../data/restricted.js");
 // TODO: add twilio notification to the POST endpoint below. connect with all users matching business type
 
 // GET "/api/questions" - gets a list of all questions
-router.get("/questions", async (req, res) => {
+router.get("/questions", restricted, async (req, res) => {
   try {
     const questions = await Questions.find(req.query);
     res.status(200).json(questions);
@@ -24,7 +24,7 @@ router.get("/questions", async (req, res) => {
 
 // POST "/api/questions" - adds a question to the Database
 // TODO: all posts use user_id of 1. correct this so it changes to the logged in user
-router.post("/questions", async (req, res) => {
+router.post("/questions", restricted, async (req, res) => {
   try {
     const question = await Questions.addQuestion(req.body);
     res.status(201).json(question);
@@ -37,7 +37,7 @@ router.post("/questions", async (req, res) => {
 });
 
 // PUT "/api/questions/:id" - edits a question from the Database. - make sure the user can only edit their own questions.
-router.put("/questions/:id", async (req, res) => {
+router.put("/questions/:id", restricted, async (req, res) => {
   try {
     const question = await Questions.update(req.params.id, req.body);
     if (question) {
@@ -54,7 +54,7 @@ router.put("/questions/:id", async (req, res) => {
 });
 
 // DELETE "/api/question/:id" - deletes a question from the Database. - make sure the user can only delete their own questions.
-router.delete("/questions/:id", async (req, res) => {
+router.delete("/questions/:id", restricted, async (req, res) => {
   try {
     const question = await Questions.remove(req.params.id);
     if (question > 0) {
